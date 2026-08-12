@@ -1,4 +1,4 @@
-const mongoose = requre("mongoose");
+const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema(
 
   {
@@ -18,7 +18,7 @@ const postSchema = new mongoose.Schema(
     trim: true,
   },
   published: {
-    type: boolean,
+    type: Boolean,
     default: false,
   }
   },
