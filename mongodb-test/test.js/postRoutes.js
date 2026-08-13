@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.router();
+const router = express.Router();
 const Post = require("../models/Post");
 
 //get all the posts
@@ -57,7 +57,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //delete post
-router.delete ("/id", asyns (req, res) => {
+router.delete ("/:id", asyns (req, res) => {
   try {
     const deletePost = await Post.findByIdAndDelete(req.params.id);
     if (!deletePost) {
