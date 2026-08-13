@@ -1,5 +1,5 @@
 require("dotenv").config();
-const eXpress = require("express");
+const express = require("express");
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/postRoutes");
 
@@ -22,19 +22,19 @@ mongoose
     console.log( "Connected to MongoDB Atlas" );
   })
   .catch ((error) => {
-    console.error( "MongoDB connection error" );
+    console.error( "MongoDB connection error", error.message);
   });
 
 //routes
 app.get("/", (req, res) => {
   res.json({ message: "CommunityHub Api is running"});
 });
-app.use("/api/postS", postRoutes);
+app.use("/api/posts", postRoutes);
 
 //404 handler
 app.use((req, res) => {
   res.status(404).json({ error: "Route not found" });
 });
 app.listen(PORT, () => {
-  console.log('Server running on http://localhost:${PORT}');
+  console.log(`Server running on http://localhost:${PORT}`);
 });
