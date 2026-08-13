@@ -1,5 +1,5 @@
 require("dotenv").config();
-const espress = require("express");
+const eXpress = require("express");
 const mongoose = require("mongoose");
 const postRoutes = require("./routes/postRoutes");
 
@@ -7,11 +7,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //middleware
-app.user(express.json());
+app.use(express.json());
 
 //simple request logger
 app.use((req, res, next) => {
-  console.log('${req.method} ${req.url}');
+  console.log(`${req.method} ${req.url}`);
   next();
 });
 
@@ -29,7 +29,7 @@ mongoose
 app.get("/", (req, res) => {
   res.json({ message: "CommunityHub Api is running"});
 });
-app.use("/api/post", postRoutes);
+app.use("/api/postS", postRoutes);
 
 //404 handler
 app.use((req, res) => {
